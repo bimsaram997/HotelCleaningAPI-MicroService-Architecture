@@ -1,5 +1,7 @@
 using HomeCleaning.RoomService.Repositories.Amenities;
+using HomeCleaning.RoomService.Repositories.Rooms;
 using HomeCleaning.RoomService.Services.Amenities;
+using HomeCleaning.RoomService.Services.Rooms;
 using HotelCleaning.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +12,11 @@ builder.Services.AddDbContext<RoomDbContext>(options => options.UseSqlServer(
 // Add services to the container.
 
 builder.Services.AddScoped<IAmenityRepository, AmenityRepository>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 
 //Services
 builder.Services.AddScoped<AmenityService>();
+builder.Services.AddScoped<RoomsService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

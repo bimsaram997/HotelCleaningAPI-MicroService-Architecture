@@ -21,9 +21,13 @@ namespace HomeCleaning.RoomService.Repositories.Rooms
             return room;
         }
 
-        public Task<List<Room>> GetAllAsync()
+        public async Task<List<Room>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Rooms
+           .Include(r => r.Beds)
+           .Include(r => r.RoomAmenities)
+               .ThenInclude(ra => ra.Amenity)
+           .ToListAsync();
         }
 
         public async Task<Room?> GetByIdAsync(int id)
