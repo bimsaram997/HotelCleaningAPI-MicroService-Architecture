@@ -1,11 +1,13 @@
 ﻿using HomeCleaning.RoomService.Models.DataModel.Amenities;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace HomeCleaning.RoomService.Models.DataModel.Room
 {
     public class RoomAmenity
     {
         public int RoomId { get; set; }
+        [JsonIgnore] // 👈
         public Room Room { get; set; }
         public DateTime AddedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }

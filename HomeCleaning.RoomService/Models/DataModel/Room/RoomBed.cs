@@ -1,4 +1,5 @@
 ﻿using HomeCleaning.RoomService.Enums;
+using System.Text.Json.Serialization;
 
 namespace HomeCleaning.RoomService.Models.DataModel.Room
 {
@@ -6,6 +7,7 @@ namespace HomeCleaning.RoomService.Models.DataModel.Room
     {
         public int Id { get; set; }
         public int RoomId { get; set; }
+        [JsonIgnore] // 👈
         public Room Room { get; set; }
 
         public DateTime AddedDate { get; set; }
